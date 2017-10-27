@@ -3,7 +3,13 @@
   "type": "symfony-bundle",
   "description": "webworksCSVBundle",
   "keywords": [
-    "csv", "symfony", "webworks nürnberg", "csv handling", "csv import", "csv export", "csv mapping"
+    "csv",
+    "symfony",
+    "webworks nürnberg",
+    "csv handling",
+    "csv import",
+    "csv export",
+    "csv mapping"
   ],
   "homepage": "http://webworks-nuernberg.de",
   "license": "webworks license",
@@ -23,9 +29,7 @@
     "symfony/filesystem": "^3.3",
     "symfony/monolog-bundle": "^3.1.0",
     "symfony/polyfill-apcu": "^1.0",
-    "symfony/swiftmailer-bundle": "^2.3.10",
-    "symfony/symfony": "3.3.*",
-    "twig/twig": "^1.0||^2.0"
+    "symfony/symfony": "3.3.*"
   },
   "require-dev": {
   },
@@ -35,11 +39,6 @@
   "autoload": {
     "psr-4": {
       "webworks\\CSVBundle\\": ""
-    }
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "1.0-dev"
     }
   }
 }
