@@ -2,7 +2,9 @@
   "name": "webworks/CSVBundle",
   "type": "symfony-bundle",
   "description": "webworksCSVBundle",
-  "keywords": [],
+  "keywords": [
+    "csv", "symfony", "webworks nürnberg", "csv handling", "csv import", "csv export", "csv mapping"
+  ],
   "homepage": "http://webworks-nuernberg.de",
   "license": "webworks license",
   "authors": [
