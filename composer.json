@@ -1,5 +1,5 @@
 {
-  "name": "webworks/CSVBundle",
+  "name": "webworks/csv-bundle",
   "type": "symfony-bundle",
   "description": "webworksCSVBundle",
   "keywords": [
