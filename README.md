@@ -86,6 +86,6 @@ This bundle has been created by [webworks nürnberg](http://webworks-nuernberg.d
 ``` php
 use webworks\CSVBundle\Lib\ParseCSV;
  
-$parser = new ParseCSV('/var/www/html/saleshare/app/config/dl.csv', ';', '"');
+$parser = new ParseCSV('example.csv', ';', '"');
 $data = $parser->parse();
 ```
