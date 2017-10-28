@@ -38,7 +38,10 @@ public function registerBundles()
 Create a YAML file with the following content (for example):
 
 ```
+# app/config/csv/mapping.yml
+
 import:
+# not supported in the current version
 
 export:
     clients: # mapping name 
@@ -58,11 +61,13 @@ export:
 You can call the service from container:
 
 ```
-    $csvPath = $this->getContainer()->get('webworks.csv.mapping')
-        ->setMappingName($mappingName)
-        ->setMode('export')
-        ->process()
-        ->getPath(); // Temporary file path!
+// where ever you have an container
+
+$csvPath = $this->getContainer()->get('webworks.csv.mapping')
+    ->setMappingName('clients') // mapping name
+    ->setMode('export')
+    ->process()
+    ->getPath(); // Temporary file path!
 ```
 
 ### Step 5: Enjoy :)
