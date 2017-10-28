@@ -15,7 +15,7 @@ The `webworksCSVBundle` helps you to handle csv data and files in your Symfony a
 Require the bundle with composer:
 
 ```
-composer require friendsofsymfony/user-bundle "~2.0"
+composer require webworksnbg/csv-bundle "~0.1"
 ```
 
 ### Step 2: Enable the bundle
