@@ -24,7 +24,7 @@ Enable the bundle in the kernel:
 
 ``` php
 // app/AppKernel.php
-
+ 
 public function registerBundles()
 {
     $bundles = array(
@@ -41,10 +41,10 @@ Create a YAML file with the following content (for example):
 
 ``` yaml
 # app/config/csv/mapping.yml
-
+ 
 import:
 # not supported in the current version
-
+ 
 export:
     clients: # mapping name 
         class: acme\AppBundle\Entity\Kunde
@@ -64,7 +64,7 @@ You can call the service from container:
  
 ``` php
 // where ever you have an container
-
+ 
 $csvPath = $this->getContainer()->get('webworks.csv.mapping')
     ->setMappingName('clients') // mapping name
     ->setMode('export')
@@ -79,3 +79,13 @@ Now, you can easily write data from your database via doctrine to csv.
 ## Credits
 
 This bundle has been created by [webworks nürnberg](http://webworks-nuernberg.de) and the community.
+
+## Examples
+
+### Parse CSV file
+``` php
+use webworks\CSVBundle\Lib\ParseCSV;
+ 
+$parser = new ParseCSV('/var/www/html/saleshare/app/config/dl.csv', ';', '"');
+$data = $parser->parse();
+```

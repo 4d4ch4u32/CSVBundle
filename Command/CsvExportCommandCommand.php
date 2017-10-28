@@ -5,8 +5,8 @@ namespace webworks\CSVBundle\Command;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use webworks\CSVBundle\Lib\ParseCSV;
 
 class CsvExportCommandCommand extends ContainerAwareCommand
 {
@@ -27,6 +27,11 @@ class CsvExportCommandCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $parser = new ParseCSV('/var/www/html/saleshare/app/config/dl.csv');
+        $data = $parser->parse();
+        var_dump($data);
+        die;
+
         $mappingName = $input->getArgument('mapping_name');
 
         $csvPath = $this->getContainer()->get('webworks.csv.mapping')

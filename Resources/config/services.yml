@@ -1,4 +1,4 @@
 services:
     webworks.csv.mapping:
-         class: webworks\CSVBundle\Service\MappingService
+         class: webworks\CSVBundle\Service\ExportService
          arguments: ["@service_container"]

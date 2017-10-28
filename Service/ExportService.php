@@ -11,7 +11,7 @@ namespace webworks\CSVBundle\Service;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use webworks\CSVBundle\Lib\createCSV;
 
-class MappingService
+class ExportService
 {
 
     private $container;
