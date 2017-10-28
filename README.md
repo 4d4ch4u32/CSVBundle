@@ -14,13 +14,15 @@ The `webworksCSVBundle` helps you to handle csv data and files in your Symfony a
 
 Require the bundle with composer:
 
-`composer require friendsofsymfony/user-bundle "~2.0"`
+```
+composer require friendsofsymfony/user-bundle "~2.0"
+```
 
 ### Step 2: Enable the bundle
 
 Enable the bundle in the kernel:
 
-```
+``` php
 // app/AppKernel.php
 
 public function registerBundles()
@@ -37,7 +39,7 @@ public function registerBundles()
 
 Create a YAML file with the following content (for example):
 
-```
+``` yaml
 # app/config/csv/mapping.yml
 
 import:
@@ -59,8 +61,8 @@ export:
 ### Step 4: Use the mapping service to write data from your database to csv
 
 You can call the service from container:
-
-```
+ 
+``` php
 // where ever you have an container
 
 $csvPath = $this->getContainer()->get('webworks.csv.mapping')
