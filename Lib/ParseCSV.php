@@ -49,7 +49,7 @@ class ParseCSV
             $cells = explode($this->delimiter, $content);
             foreach ($cells as $pos => $cellName) {
                 $cellName = str_replace($this->enclosure, '', $cellName);
-                $this->csvHeaderCells[$pos] = $cellName;
+                $this->csvHeaderCells[$pos] = trim($cellName);
             }
         }
     }
