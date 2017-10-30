@@ -45,12 +45,11 @@ class ParseCSV
      */
     private function parseHeader($content)
     {
-        if (strlen($content) > 0 && $this->headline == true) {
-            $cells = explode($this->delimiter, $content);
-            foreach ($cells as $pos => $cellName) {
-                $cellName = str_replace($this->enclosure, '', $cellName);
-                $this->csvHeaderCells[$pos] = trim($cellName);
-            }
+        $this->csvHeaderCells = [];
+        $cells = str_getcsv($content, $this->delimiter, $this->enclosure);
+        foreach ($cells as $pos => $cellName) {
+            $cellName = str_replace($this->enclosure, '', $cellName);
+            $this->csvHeaderCells[$pos] = trim($cellName);
         }
     }
 
@@ -60,10 +59,11 @@ class ParseCSV
      */
     private function parseLine($content, $count)
     {
-        if (strlen($content) > 0 && $this->headline == true) {
-            $cells = explode($this->delimiter, $content);
-            foreach ($cells as $pos => $cellVal) {
-                $cellVal = str_replace($this->enclosure, '', $cellVal);
+        $cells = str_getcsv($content, $this->delimiter, $this->enclosure);
+        #var_dump($cells);
+        foreach ($cells as $pos => $cellVal) {
+            $cellVal = str_replace($this->enclosure, '', $cellVal);
+            if (isset($this->csvHeaderCells[$pos])) {
                 $this->csvData[$count - 1][$this->csvHeaderCells[$pos]] = trim($cellVal);
             }
         }
