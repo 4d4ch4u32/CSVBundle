@@ -12,7 +12,7 @@
     "csv mapping"
   ],
   "homepage": "http://webworks-nuernberg.de",
-  "license": "webworks license",
+  "license": "MIT",
   "authors": [
     {
       "name": "webworks nürnberg UG",
