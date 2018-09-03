@@ -20,22 +20,19 @@ class createCSV
     public function arrayToCsv(array $lines, $delimiter = ';', $enclosure = '"')
     {
         $csvStr = '';
-
-        $count = 0;
         foreach ($lines as $line) {
-            if ($count == 0) {
+            if ( strlen( $csvStr ) < 1 ) {
                 $cellNames = array_keys($line);
                 foreach ($cellNames as $name) {
                     $csvStr .= $enclosure . $name . $enclosure . $delimiter;
                 }
                 $csvStr .= "\n\r";
-            } else {
-                foreach ($line as $cell) {
-                    $csvStr .= $enclosure . $cell . $enclosure . $delimiter;
-                }
-                $csvStr .= "\n\r";
             }
-            $count++;
+            
+            foreach ($line as $cell) {
+                $csvStr .= $enclosure . $cell . $enclosure . $delimiter;
+            }
+            $csvStr .= "\n\r";
         }
 
         return $csvStr;
