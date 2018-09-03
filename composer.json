@@ -22,7 +22,7 @@
   "require": {
     "php": "^5.5.9|>=7.0.8",
     "doctrine/doctrine-bundle": "^1.6",
-    "doctrine/orm": "^2.5",
+    "doctrine/orm": "^2.5"
   },
   "require-dev": {
   },
