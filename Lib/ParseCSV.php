@@ -49,6 +49,9 @@ class ParseCSV
         $cells = str_getcsv($content, $this->delimiter, $this->enclosure);
         foreach ($cells as $pos => $cellName) {
             $cellName = str_replace($this->enclosure, '', $cellName);
+            if (substr($cellName, 0, 3) == b'\xef\xbb\xbf') {
+                $cellName = substr($cellName, 3);
+            }
             $this->csvHeaderCells[$pos] = trim($cellName);
         }
     }
@@ -92,9 +95,16 @@ class ParseCSV
         $line = $args['count'];
 
         if ($line == 0) {
-            $this->parseHeader($content);
+            $this->parseHeader($this->remove_utf8_bom($content));
         } else {
-            $this->parseLine($content, $line);
+            $this->parseLine($this->remove_utf8_bom($content), $line);
         }
+    }
+
+    private function remove_utf8_bom($text)
+    {
+        $bom = pack('H*', 'EFBBBF');
+        $text = preg_replace("/^$bom/", '', $text);
+        return $text;
     }
 }
